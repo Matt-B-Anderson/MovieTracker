@@ -1,0 +1,7 @@
+.container {
+  padding-left: 80px;
+  width: auto;
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}

@@ -4,13 +4,21 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import MovieProvider from "./context/MovieProvider";
+import { NextUIProvider } from "@nextui-org/react"
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <BrowserRouter>
-    <App />
+    <MovieProvider>
+      <NextUIProvider>
+        <main className="dark text-foreground bg-background">
+          <App />
+        </main>
+      </NextUIProvider>
+    </MovieProvider>
   </BrowserRouter>
 );
 
