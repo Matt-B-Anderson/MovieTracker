@@ -21,6 +21,7 @@ const MovieProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         res.data.results.forEach(person => {
           if (person.name === finalString) {
             setPersonId(person.id)
+            localStorage.setItem("personId", person.id)
           } else return;
         })
       });
@@ -34,10 +35,11 @@ const MovieProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         },
       }).then((res) => {
         setPersonsMovies(res.data)
+        localStorage.setItem("personsMovies", res.data)
       })
   }
   return (
-    <MovieContext.Provider value={{ personId, getPerson, personsMovies, getPersonsMovies }}>
+    <MovieContext.Provider value={{ personId, getPerson, personsMovies, getPersonsMovies, setPersonsMovies }}>
       {children}
     </MovieContext.Provider>
   );
