@@ -8,7 +8,7 @@ type Props = {
 
 const Movie: React.FC<Props> = ({ movie }) => {
     return (
-        <Card className='py-4'>
+        <Card className='py-3'>
             <Checkbox />
             <CardHeader className='pb-0 pt-2 px-4 flex-col items-start'>
                 <p className='text-tiny upercase font-bold'>{movie.title}</p>
@@ -18,7 +18,7 @@ const Movie: React.FC<Props> = ({ movie }) => {
                 <Image
                     alt='Movie Poster'
                     className='object-cover rounded-xl'
-                    src={`https://www.themoviedb.org/t/p/original/${movie.poster_path}`}
+                    src={`https://www.themoviedb.org/t/p/original${movie.poster_path}`}
                     width={270}
                 />
             </CardBody>
