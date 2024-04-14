@@ -6,18 +6,8 @@ const path = require("path");
 const _dirname = path.dirname("")
 const buildpath = path.join(_dirname, "../client/build")
 
-app.use(express.json(buildpath));
+app.use(express.static(buildpath));
 app.use(cors());
-
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"),
-    function (err) {
-      if (err) {
-        res.status(500).send(err);
-      }
-    }
-  )
-});
 
 app.use("/api", require("./routes/apiRouter"));
 
@@ -29,6 +19,15 @@ app.use((err, req, res, next) => {
   return res.send({ errMsg: err.message });
 });
 
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  )
+});
 
 const PORT = process.env.PORT || 5001;
 
