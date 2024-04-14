@@ -1,0 +1,17 @@
+{
+  "name": "movie-tracker-server",
+  "version": "0.1.0",
+  "private": true,
+  "main": "sever.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.2.4",
+    "morgan": "^1.10.0",
+    "node-fetch": "^3.3.2"
+  },
+  "scripts": {
+    "start": "cd server && node server.js"
+  }
+
+}

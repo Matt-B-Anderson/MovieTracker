@@ -1,1 +1,1 @@
-web: cd movie-tracker-client && npm install && npm start
+web: cd npm start

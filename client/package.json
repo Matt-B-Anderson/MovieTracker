@@ -24,9 +24,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start-client": "react-scripts start",
+    "build": "react-scripts build && (cd ../server && npm install)",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
