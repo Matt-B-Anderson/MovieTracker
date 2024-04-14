@@ -3,11 +3,14 @@ const app = express();
 const cors = require("cors");
 const path = require("path");
 
-app.use(express.json());
+const _dirname = path.dirname("")
+const buildpath = path.join(_dirname, "../client/build")
+
+app.use(express.json(buildpath));
 app.use(cors());
 
 app.get("/*", function (req, res) {
-  res.sendFile(path.resolve("../client/build/index.html"),
+  res.sendFile(path.join(__dirname, "../client/build/index.html"),
     function (err) {
       if (err) {
         res.status(500).send(err);
