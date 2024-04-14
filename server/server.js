@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const path = require("path");
 
 app.use(express.json());
 app.use(cors());
 
 app.get("/*", function (req, res) {
-  res.sendFile("../client/build/index.html", {root: __dirname},
+  res.sendFile(path.resolve("../client/build/index.html"), {root: __dirname},
     function (err) {
       if (err) {
         res.status(500).send(err);
