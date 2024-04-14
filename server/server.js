@@ -7,7 +7,7 @@ const _dirname = path.dirname("")
 const buildpath = path.join(_dirname, "../client/build")
 
 app.use(express.static(buildpath));
-app.use(cors({origin: "https://whispering-river-63219-930143222181.herokuapp.com/", credentials: true}));
+app.use(cors({origin: "https://whispering-river-63219-930143222181.herokuapp.com/",preflightContinue:false, credentials: true}));
 
 app.use("/api", require("./routes/apiRouter"));
 
