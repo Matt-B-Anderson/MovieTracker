@@ -1,42 +1,47 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Input, Button} from "@nextui-org/react";
+import { Input, Button } from "@nextui-org/react";
 import Movies from "./Movies";
 import { MovieContext } from "../context/MovieProvider";
 import { MovieContextType } from "../@types/movie";
 
 export default function Home() {
-  const { personsMovies, getPerson, personId, getPersonsMovies, setPersonsMovies } = useContext(
-    MovieContext
-  ) as MovieContextType;
+  const {
+    personsMovies,
+    getPerson,
+    personId,
+    //getPersonsMovies,
+    setPersonsMovies } = useContext(
+      MovieContext
+    ) as MovieContextType;
   const [personName, setPersonName] = useState<string>();
 
-  useEffect(()=> {
-    if (localStorage.getItem("personName") === null || localStorage.getItem("personName") === undefined || localStorage.getItem("personName") === ''){
+  useEffect(() => {
+    if (localStorage.getItem("personName") === null || localStorage.getItem("personName") === undefined || localStorage.getItem("personName") === '') {
       localStorage.clear()
       return;
     } else setPersonName(localStorage.getItem("personName"))
 
-    if (localStorage.getItem("personsMovie") === null || localStorage.getItem("personsMovies") === undefined){
+    if (localStorage.getItem("personsMovie") === null || localStorage.getItem("personsMovies") === undefined) {
       return;
     } else setPersonsMovies(JSON.parse(localStorage.getItem("personsMovies")))
-    
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
 
-  useEffect(() => {
-    let id: any;
-
-    if (localStorage.getItem("personId") === null || localStorage.getItem("personId") === undefined) {
-      id = personId
-      return;
-    } else id = localStorage.getItem("personId")
-    getPersonsMovies(id);
-
-    const input: HTMLInputElement = document.querySelector("input");
-    const placeholderLength: number = input.getAttribute("placeholder").length;
-    input.setAttribute("size", `${placeholderLength}`);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [personId]);
+  }, [])
+
+  // useEffect(() => {
+  //   let id: any;
+
+  //   if (localStorage.getItem("personId") === null || localStorage.getItem("personId") === undefined) {
+  //     id = personId
+  //     return;
+  //   } else id = localStorage.getItem("personId")
+  //   getPersonsMovies(id);
+
+  //   const input: HTMLInputElement = document.querySelector("input");
+  //   const placeholderLength: number = input.getAttribute("placeholder").length;
+  //   input.setAttribute("size", `${placeholderLength}`);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [personId]);
 
   function handleSubmit(e) {
     e.preventDefault();
