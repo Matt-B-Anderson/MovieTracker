@@ -10,5 +10,5 @@ export type MovieContextType = {
   personId: number
   setPersonsMovies: (personsMovies: {}) => void;
   getPerson: (person: string) => void;
-  getPersonsMovies: (id: number) => void;
+  //getPersonsMovies: (id: number) => void;
 };

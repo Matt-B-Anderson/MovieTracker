@@ -7,7 +7,7 @@ export const MovieContext = React.createContext<MovieContextType | null>(null);
 const MovieProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [personsMovies, setPersonsMovies] = React.useState<MovieContextType["personsMovies"]>();
   const [personId, setPersonId] = React.useState<number>();
-  const getPerson = (person: string) => {
+  const getPerson = async (person: string) => {
     axios
       .get(`http://localhost:9000/api/person/${person}`, {
         headers: {
@@ -21,25 +21,35 @@ const MovieProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         res.data.results.forEach(person => {
           if (person.name === finalString) {
             setPersonId(person.id)
-            localStorage.setItem("personId", person.id)
+            axios
+              .get(`http://localhost:9000/api/person/${person.id}/movies`, {
+                headers: {
+                  AccessControlAllowOrigin: "*",
+                },
+              }).then((res) => {
+                setPersonsMovies(res.data)
+
+                localStorage.setItem("personsMovies", res.data)
+              })
           } else return;
         })
       });
   };
 
-  const getPersonsMovies = (id: number) => {
-    axios
-      .get(`http://localhost:9000/api/person/${id}/movies`, {
-        headers: {
-          AccessControlAllowOrigin: "*",
-        },
-      }).then((res) => {
-        setPersonsMovies(res.data)
-        localStorage.setItem("personsMovies", res.data)
-      })
-  }
+  // const getPersonsMovies = (id: number) => {
+  //   axios
+  //     .get(`http://localhost:9000/api/person/${id}/movies`, {
+  //       headers: {
+  //         AccessControlAllowOrigin: "*",
+  //       },
+  //     }).then((res) => {
+  //       setPersonsMovies(res.data)
+
+  //       localStorage.setItem("personsMovies", res.data)
+  //     })
+  // }
   return (
-    <MovieContext.Provider value={{ personId, getPerson, personsMovies, getPersonsMovies, setPersonsMovies }}>
+    <MovieContext.Provider value={{ personId, getPerson, personsMovies, setPersonsMovies }}>
       {children}
     </MovieContext.Provider>
   );
