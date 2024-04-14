@@ -5,7 +5,7 @@ import Home from "./components/home";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App h-full">
       <Routes>
         <Route path="/" Component={Home} />
       </Routes>
