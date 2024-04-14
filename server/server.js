@@ -5,16 +5,6 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
-app.use("/api", require("./routes/apiRouter"));
-
-app.use((err, req, res, next) => {
-  console.log(err);
-  if (err.name === "UnauthorizedError") {
-    res.status(err.status);
-  }
-  return res.send({ errMsg: err.message });
-});
-
 app.get("/*", function (req, res) {
   res.sendFile(
     path.join(__dirname, "../client/build/index.html"),
@@ -25,6 +15,17 @@ app.get("/*", function (req, res) {
     }
   )
 });
+
+app.use("/api", require("./routes/apiRouter"));
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  if (err.name === "UnauthorizedError") {
+    res.status(err.status);
+  }
+  return res.send({ errMsg: err.message });
+});
+
 
 const PORT = process.env.PORT || 5001;
 
