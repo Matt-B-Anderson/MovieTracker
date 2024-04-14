@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/*", function (req, res) {
-  res.sendFile(path.resolve("../client/build/index.html"), {root: __dirname},
+  res.sendFile(path.resolve("../client/build/index.html"),
     function (err) {
       if (err) {
         res.status(500).send(err);
