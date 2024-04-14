@@ -1,8 +1,12 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const path = require("path")
 
-app.use(express.json());
+const __dirname = path.dirname("");
+const buildPath = path.join(__dirname, "../client/build")
+
+app.use(express.json(buildPath));
 app.use(cors());
 
 app.get("/*", function (req, res) {
