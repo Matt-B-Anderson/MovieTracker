@@ -9,9 +9,5 @@
     "mongoose": "^8.2.4",
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.2"
-  },
-  "scripts": {
-    "start": "cd server && node server.js"
   }
-
 }
