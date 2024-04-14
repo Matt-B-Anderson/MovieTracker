@@ -12,6 +12,7 @@ apiRouter.get(`/person/:id/movies`, async (req, res) => {
         method: "GET",
         headers: {
           accept: "application/json",
+          AccessControlAllowOrigin: "*",
           AccessControlAllowCredentials: true,
           AccessControlAllowMethods: 'GET,PUT,POST,DELETE,OPTIONS',
           AccessControlAllowHeaders: 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json',
