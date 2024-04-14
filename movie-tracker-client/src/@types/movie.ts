@@ -8,6 +8,7 @@ export interface movie {
 export type MovieContextType = {
   personsMovies: { cast: movie[] };
   personId: number
+  setPersonsMovies: (personsMovies: {}) => void;
   getPerson: (person: string) => void;
   getPersonsMovies: (id: number) => void;
 };
