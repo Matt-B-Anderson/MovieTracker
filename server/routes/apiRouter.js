@@ -1,7 +1,7 @@
 const express = require("express");
 const apiRouter = express.Router();
 
-const token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMzk1ZjZmYTRkMzM0MWMwMTNjYWMzOGJlZDU4MTNlYyIsInN1YiI6IjY2MDk3OTQ3ZDUxOTFmMDE2NDMwZjZhNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.w_16c7kn7iktXw9Q463xYGyc1YdCZo85GLBIqAZGrsY";
+const token = process.env.TIMDB_TOKEN
 
 apiRouter.get(`/person/:id/movies`, async (req, res) => {
   
