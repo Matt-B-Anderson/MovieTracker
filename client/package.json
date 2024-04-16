@@ -2,7 +2,7 @@
   "name": "movie-tracker-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://matt-b-anderson.github.io/MovieTracker/",
+  "homepage": ".",
   "dependencies": {
     "@nextui-org/react": "^2.2.10",
     "@testing-library/jest-dom": "^5.17.0",
@@ -22,11 +22,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start-client": "react-scripts start",
+    "build": "react-scripts build && (cd ../server && npm install)",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
