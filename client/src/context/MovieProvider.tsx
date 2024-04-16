@@ -9,7 +9,7 @@ const MovieProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const [personId, setPersonId] = React.useState<number>();
   const getPerson = async (person: string) => {
     axios
-      .get(`https://movie-tracker-b85347f296a8.herokuapp.com/api${person}`, {
+      .get(`https://movie-tracker-b85347f296a8.herokuapp.com/api/${person}`, {
         headers: {
           AccessControlAllowOrigin: "*",
         },
