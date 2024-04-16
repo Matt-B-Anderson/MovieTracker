@@ -9,7 +9,7 @@ const MovieProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const [personId, setPersonId] = React.useState<number>();
   const getPerson = async (person: string) => {
     axios
-      .get(`http://localhost:9000/api/person/${person}`, {
+      .get(`https://whispering-river-63219-930143222181.herokuapp.com/${person}`, {
         headers: {
           AccessControlAllowOrigin: "*",
         },
@@ -22,7 +22,7 @@ const MovieProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           if (person.name === finalString) {
             setPersonId(person.id)
             axios
-              .get(`http://localhost:9000/api/person/${person.id}/movies`, {
+              .get(`https://whispering-river-63219-930143222181.herokuapp.com/${person.id}/movies`, {
                 headers: {
                   AccessControlAllowOrigin: "*",
                 },
