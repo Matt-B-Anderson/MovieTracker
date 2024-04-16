@@ -12,7 +12,7 @@ const Movies = () => {
     })
 
     return (
-        <div className='container'>
+        <div className='container grid grid-flow-col auto-cols-auto'>
             {dateSorted?.map((movie: movie) => (
                 <Movie key={movie.id} movie={movie} />
             ))}
