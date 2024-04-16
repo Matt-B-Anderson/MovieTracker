@@ -19,7 +19,6 @@ const Movie: React.FC<Props> = ({ movie }) => {
                     alt='Movie Poster'
                     className='object-cover rounded-xl max-w-60 min-w-60'
                     src={`https://www.themoviedb.org/t/p/original${movie.poster_path}`}
-                    width={270}
                 />
             </CardBody>
         </Card>
