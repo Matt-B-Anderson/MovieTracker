@@ -2,7 +2,7 @@
   "name": "movietracker",
   "version": "1.0.0",
   "description": "Keep track of movies you've watched by a specific actor/actress",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd server && node server.js"
