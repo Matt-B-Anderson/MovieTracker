@@ -5,4 +5,4 @@
 
 [context.production.environment]
   NODE_VERSION = "18"
-  NPM_FLAGS = --include=dev
+  NPM_FLAGS = "--include=dev"
