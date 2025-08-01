@@ -1,5 +1,5 @@
 import Movie from './Movie';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { MovieContext } from '../context/MovieProvider';
 import { MovieContextType, movie } from '../@types/movie';
 import "./Movies.css"
